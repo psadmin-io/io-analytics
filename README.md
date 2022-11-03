@@ -14,11 +14,11 @@ sudo dnf install podman podman-compose buildah skopeo -y
 # Create the storage location
 sudo su - opc
 container_location=/u01/app/containers
+sudo mkdir -p $container_location
 sudo chown opc:opc $container_location
 
 # Symlink /var/lib/containers
 sudo rm -rf /var/lib/containers
-sudo mkdir -p $container_location
 sudo ln -s $container_location /var/lib/
 
 # Configure podman to use location - rootless default is ~/.local/containers
@@ -33,6 +33,7 @@ EOF
 Clone the repo and build the cluster
 
 ```bash
+sudo su - opc
 cd /var/lib/containers
 git clone https://github.com/psadmin-io/io-analytics.git
 cd io-analytics

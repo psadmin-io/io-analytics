@@ -1,0 +1,4 @@
+APPSIAN_TIMESTAMP %{YEAR:year}-%{MONTHNUM:month}-%{MONTHDAY:day}%{SPACE}%{TIME:time}
+APPSIAN_APPSERVER //%{DATA:appserver_host}\_%{INT:jolt_port}
+APPSIAN_USER (%{USER:oprid}(\@%{DATA:domain})?|\(not\ logged\ in\))
+APPSIAN_ACTIVITY_LOG %{APPSIAN_TIMESTAMP:timestamp}\,%{DATA:session}\,%{APPSIAN_USER:user}\,%{IPV4:client_ipaddress}\,%{WORD:method}\,%{DATA:menu}\,%{DATA:component}\,%{DATA:page}\,%{DATA:keys}\,%{DATA:ICAction}\,%{SPACE}%{DATA:url}\,%{DATA:devicetype}\,%{DATA:rendermode}\,%{GREEDYDATA:ua}\,%{DATA:physicalhost}\,%{DATA:webappdomain}\,%{NUMBER:elapsedseconds}\,(%{APPSIAN_APPSERVER:appserver})?
